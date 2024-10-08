@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking System</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div>
+        <header>
+            <div class="logo-heading-container">
+                <img src="img/logo-removebg-preview.png" alt="" class="logo">
+                <h2 class="pr-title">
+                    <span class="color1">Tracking</span>
+                    <span class="color2">System</span>
+                </h2>
+            </div>
+            <nav class="navigation">
+                <a href="#" id="homeLink">Home</a>
+                <div class="popup-message" id="popupMessage">You are in the home</div>
+                <a href="#" id="whoAreWeLink">About Us</a>
+                <a href="#" id="servicesLink">Services</a>
+                <a href="#" id="contactUsLink">Contect Us</a>
+                <button class="btnLogin-popup" onclick="openLoginBox()">Sign In</button>
+            </nav>
+        </header>
+
+        <div class="home-window">
+            <div class="main-page">
+                <h1>Explore various locations & track your journey</h1>
+                <p>Safety is our top priority for all outdoor adventures we offer. We take pride in being the best in ensuring a safe and enjoyable experience.</p>
+                <div class="cross-whitebg"></div>
+                <div class="whitebg1">
+                    <p class="win-para0">Start tracking your fleet today!</p>
+                </div>
+                <div class="win-tab">
+                    <p>Book a meeting to learn about our system.</p>
+                </div>
+                <div id="particles-js"></div>
+            </div>
+        </div>
+
+        <div id="loginBox" class="login-box" style="display: none;">
+            <div class="login-content">
+                <span class="close-btn" id="closeBtn" onclick="closeLoginBox()">×</span>
+                <h2>Login</h2>
+                <form id="loginForm" onsubmit="return signIn(event);">
+                    <div class="input-group">
+                        <input id="loginEmail" type="email" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <input id="loginPassword" type="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" id="loginButton">Sign In</button>
+                </form>
+                <p id="loginMessage"></p>
+            </div>
+        </div>
+    </div>
+
+    <section class="sec-01" id="sec-01">
+        <div class="container">
+            <h2 class="section-title">Welcome to our site</h2>
+                <div class="content">
+                    <div class="image">
+                        <img src="img/vecteezy_map-of-the-western-us_1425228.jpeg" alt="">
+                    </div>
+                    <div class="text-box">
+                        <h3>Nice To Meet You</h3>
+                        <p>We are Tracking System Foundation is one of the largest leading institutions in the field.</p>
+                        <p>Approved by the Communications and Information Technology Commission with license number: 650-07-43.</p>
+                        <p>Approved by the Public Transport Authority.</p>
+                        <p>Commercial Registration No.: 1128185906.</p>
+                    </div>
+                </div>
+            <div class="media-icons">
+                <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </section>
+    <section class="sec-02">
+        <div class="container">
+            <h3 class="section-title">Our Offerings</h3>
+                <div class="content">
+                    <div class="image">
+                        <img src="img/vecteezy_travelers-explore-the-mountainous-forest-map_47201888.jpg" alt="">
+                    </div>
+                    <div class="info">
+                        <h4>Tracking Solutions</h4>
+                        <p>We provide advanced tracking solutions that ensure real-time visibility and security of your assets, tailored to meet your specific needs.</p>
+                        <h4>Fleet Management</h4>
+                        <p>Our fleet management services optimize operations through vehicle tracking, route optimization, and maintenance scheduling, enhancing efficiency and reducing costs.</p>
+                        <h4>Real-Time Monitoring</h4>
+                        <p>Stay informed with our real-time monitoring services, offering live updates and alerts to proactively manage your assets and ensure operational efficiency.</p>
+                    </div>
+                    <div class="class-button">
+                        <button class="mapview-button" id="mapview-buttonLink">Map View</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sec-03">
+        <div class="container">
+            <h3 class="section-title">Get In Touch</h3>
+            <div class="menu-bar">
+                <button class="close-menu">×</button>
+                <ul>
+                    <li>For inquiries, call us at +123-456-7890.</li>
+                    <li>For media inquiries, reach out to media@company.com.</li>
+                    <li>Need help? Contact customer support at support@company.com.</li>
+                    <li>Have a question? Drop us a message at ask@company.com.</li>
+                    <li>Start a live chat with one of our representatives.</li>
+                    <li>Call us at +123-456-7890.</li>
+                </ul>
+            </div>
+            <div class="content">
+                <div class="media-info">
+                    <li><i class="fa fa-phone"></i> Call Us</li>
+                    <li><i class="fa-solid fa-circle-info"></i> Media Inquiries</li>
+                    <li><i class="fa-solid fa-headset"></i> Customer Support</li>
+                    <li><i class="fa-regular fa-envelope"></i> Ask a Question</li>
+                    <li><i class="fa-regular fa-comment-dots"></i> Chat Live</li>
+                </div>
+                <div class="image">
+                    <img src="img/vecteezy_tourist-planning-vacation-with-the-help-of-world-map-and_8006100.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sec-04">
+        <div class="container">
+            <h3 class="section-title">Map View</h3>
+            <div class="content">
+                <div class="tracking-panel">
+                    <h4>Tracking Panel</h4>
+                    <form action="">
+                        <div class="track-info">
+                            <label for="location-name">Location Name:</label>
+                            <input type="text" id="location-name" name="location_name" placeholder="Enter location name">
+                            <button type="submit" id="track-button">Track</button>
+                        </div>
+                        <div>
+                            <p>Tracking Status: <span id="status">Idle</span></p>
+                        </div>
+                    </form>
+                </div>
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-img">
+            <div class="img-sizeFix">
+                <img src="img/vecteezy_business-team-present-professional-investor-working-new_12792778-modified.jpg" alt="">
+            </div>
+            <div class="overlay-text">
+                <h3>Subscribe to our Tracking System</h3>
+            </div>
+        </div>
+        <div class="footer-content">
+            <div class="foottitle">
+                <h2><img src="img/logo-removebg-preview.png" class="footlogo">Tracking System</h2>
+                <p>Tracking System, 410-555 W Hashtags, St Vanccover, Saudi</p>
+                <p>tracking@system.com</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>TRACKING MAPS</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#" id="02">About</a></li>
+                        <li><a href="#" id="03">Careers</a></li>
+                        <li><a href="#" id="04">Map</a></li>
+                        <li><a href="#" id="05">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>SERVICES</h4>
+                    <ul>
+                        <li><a href="#" class="goSec-02">Tracking Solutions</a></li>
+                        <li><a href="#" class="goSec-02">Fleet Management</a></li>
+                        <li><a href="#" class="goSec-02">Real-Time Monitoring</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section icon-alignRight">
+                    <h4>FOLLOW US</h4>
+                    <ul>
+                        <li><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.linkedin.com"><i class="fab fa-linkedin"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <nav class="footer-nav">
+                <a id="terms" class="footer-popup">TERMS & CONDITIONS</a>
+                <a id="privacy" class="footer-popup">PRIVACY POLICY</a>
+                <a id="sitemap" class="footer-popup">SITEMAP</a>
+            </nav>
+            <p>Copyright 2024 © Tracking System Interactive. Website by Edge of the Web</p>
+        </div>
+        <div class="popup" id="popup-box">
+            <p class="popup-content" id="popup-text"></p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
